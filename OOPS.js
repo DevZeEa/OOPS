@@ -59,3 +59,26 @@ class Bike{
 // there's usecase to call directly on class and donot want to give access to the instance of the class
 console.log(Bike.btnStart(9,55));
 
+class Employee{
+    #salary
+    constructor(name,salary){
+    if(salary < 0) throw new Error('Invalid salary')
+    this.name = name;
+    this.salary = salary;
+    }
+    get salary(){
+        return 'you are not allowed to see the salary';
+    }
+    set salary(amount){
+        if(amount < 0){
+       console.log('Add some positive amount in the salary')
+        }else{
+            this._salary = amount;
+        }
+    }
+}
+
+const emP = new Employee('Zia', 40000)
+console.log(emP._salary);
+// emP.salary = -7000
+// console.log(emP._salary);
